@@ -1,0 +1,26 @@
+/* Reset some default styles for better consistency */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main {
+    margin: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}

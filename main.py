@@ -23,6 +23,8 @@ def index():
         if gotcha_data == 'yes':
             calculator.data()
             result = None
+            return render_template('index.html', result=result)
+
 
     return render_template('index.html', result=result)
 
