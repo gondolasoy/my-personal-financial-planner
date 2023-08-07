@@ -24,3 +24,20 @@ footer {
     padding: 1rem;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.result-line {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px; /* Optional: add space between lines */
+}
+
+.content {
+    flex: 1;
+}
+
+.button-container {
+    display: flex;
+    flex: 1
+    gap: 10px;
+}
+

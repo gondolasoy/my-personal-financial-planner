@@ -25,14 +25,24 @@
         {% if result %}
         <p>Result:</p>
         {% for line in result %}
-        <p>
-            {{ line | safe }}
-            <button type="submit" name="invest" value="{{ loop.index0 }}">Invest</button>
-            <button type="submit" name="keep" value="{{ loop.index0 }}">Keep</button>
-        </p>
+        <div class="result-line">
+            <div class="content">
+                <p>{{ line | safe }}</p>
+            </div>
+            <div class="button-container">
+                <form action="/" method="POST">
+                    <input type="hidden" name="invest" value="yes">
+                    <button type="submit" name="invest" value="yes">Invest</button>
+                </form>
+                <form action="/" method="POST">
+                    <input type="hidden" name="invest" value="yes">
+                    <button type="submit" name="keep" value="yes">Keep</button>
+                </form>
+            </div>
+        </div>
         {% endfor %}
-        {% endif %}<br>
-
+    {% endif %}
+    
 
         <!-- "Gotcha!" button form -->
         <form action="/" method="POST">
