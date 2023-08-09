@@ -16,24 +16,24 @@ def index():
             calculator = FinancialCalculator(number)
             global result
             result = calculator.calculate()
+            return render_template('index.html', result=result)
 
-        gotcha_data = request.form.get('gotcha_data')  # Get "Gotcha!" data
+       # Get "Gotcha!" data
 
         # Check if "Gotcha!" button was clicked and store data in CSV
-        if gotcha_data == 'yes':
-            calculator.data()
-            result = None
-            return render_template('index.html', result=result)
+        elif 'gotcha_data' in request.form:
+            gotcha_data = request.form.get('gotcha_data')  # Get "Gotcha!" data
+            if gotcha_data == 'yes':
+                calculator.data()
+                result = None
+                return render_template('index.html', result=result)
+    
+        if any(key.startswith('invest_') for key in request.form.keys()):
+            alternative_result = "To be continued"
+            # Do your action for the invest button here
+            return render_template('index.html', alternative_result=alternative_result)
         
-        for key in request.form.keys():
-            if key.startswith('invest_'):
-                index = int(key.split('_')[1])
-                name = request.form.get(key)
-                if name == 'yes':
-                    print(type(index), key)
-                    return render_template('index.html', result=result.pop(index-1))
-
-    return render_template('index.html', result=result)
+    return render_template('index.html', result=result)  # Default return statement
 
 if __name__ == '__main__':
     app.run(debug=True)
