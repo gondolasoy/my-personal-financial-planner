@@ -23,17 +23,15 @@ def index():
         if gotcha_data == 'yes':
             calculator.data()
             result = None
-            return render_template('index.html', result="result")
+            return render_template('index.html', result=result)
         
-        invest = request.form.get('invest')
-        if invest == 'yes':
-            return render_template('index.html', result="2")
-
-        
-        keep = request.form.get('gotcha_data')
-        if keep == 'yes':
-            pass
-
+        for key in request.form.keys():
+            if key.startswith('invest_'):
+                index = int(key.split('_')[1])
+                name = request.form.get(key)
+                if name == 'yes':
+                    print(type(index), key)
+                    return render_template('index.html', result=result.pop(index-1))
 
     return render_template('index.html', result=result)
 

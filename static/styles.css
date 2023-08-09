@@ -2,6 +2,7 @@
 body, h1, p {
     margin: 0;
     padding: 0;
+    margin-top: 10px;
 }
 
 body {
@@ -27,17 +28,11 @@ footer {
 
 .result-line {
     display: flex;
-    align-items: baseline;
-    margin-bottom: 10px; /* Optional: add space between lines */
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.content {
-    flex: 1;
-}
-
-.button-container {
-    display: flex;
-    flex: 1
-    gap: 10px;
+.result-buttons {
+    margin-left: 10px; /* Adjust this value as needed for the desired spacing between text and buttons */
 }
 
